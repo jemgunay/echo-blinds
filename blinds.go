@@ -86,27 +86,25 @@ func updatePoller() {
 		drawMotor.SetDirectionWithDuration(motor.None, 0)
 		time.Sleep(time.Second)
 
-		go func(state State) {
-			switch state {
-			case Open:
-				log.Print("Opening blinds...")
-				go rotateMotor.SetDirectionWithDuration(motor.Forwards, time.Second*2)
-				go drawMotor.SetDirectionWithDuration(motor.Forwards, time.Second*8)
-				log.Print("Blinds opened.")
+		switch state {
+		case Open:
+			log.Print("Opening blinds...")
+			go rotateMotor.SetDirectionWithDuration(motor.Forwards, time.Second*2)
+			go drawMotor.SetDirectionWithDuration(motor.Forwards, time.Second*8)
+			log.Print("Blinds opened.")
 
-			case Close:
-				log.Print("Closing blinds...")
-				go rotateMotor.SetDirectionWithDuration(motor.Backwards, time.Second*2)
-				go drawMotor.SetDirectionWithDuration(motor.Backwards, time.Second*8)
-				log.Print("Blinds closed.")
+		case Close:
+			log.Print("Closing blinds...")
+			go rotateMotor.SetDirectionWithDuration(motor.Backwards, time.Second*2)
+			go drawMotor.SetDirectionWithDuration(motor.Backwards, time.Second*8)
+			log.Print("Blinds closed.")
 
-			case Stop:
-				log.Print("Stopped blinds.")
+		case Stop:
+			log.Print("Stopped blinds.")
 
-			default:
-				log.Printf("Unsupported blinds command: %s", state)
-			}
-		}(state)
+		default:
+			log.Printf("Unsupported blinds command: %s", state)
+		}
 	}
 }
 
