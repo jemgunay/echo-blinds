@@ -1,2 +1,3 @@
 cmd/echo-blinds/echo-blinds
 cmd/manual-blinds/manual-blinds
+build/
