@@ -51,7 +51,7 @@
           "name": "StopBlindsIntent",
           "slots": [],
           "samples": [
-            "stop closing my bilnds",
+            "stop closing my blinds",
             "stop opening my blinds",
             "stop closing the blinds",
             "stop opening the blinds",
