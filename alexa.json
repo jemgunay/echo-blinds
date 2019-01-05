@@ -27,34 +27,26 @@
           "name": "OpenBlindsIntent",
           "slots": [],
           "samples": [
-            "open",
-            "open my blinds",
-            "can you open my blinds",
-            "can you open the blinds",
-            "open blinds",
-            "open the blinds"
+            "wake up",
+            "open"
           ]
         },
         {
           "name": "CloseBlindsIntent",
           "slots": [],
           "samples": [
-            "close",
-            "close my blinds",
-            "can you close my blinds",
-            "can you close the blinds",
-            "close blinds",
-            "close the blinds"
+            "sleep",
+            "shut",
+            "close"
           ]
         },
         {
           "name": "StopBlindsIntent",
           "slots": [],
           "samples": [
-            "stop closing my blinds",
-            "stop opening my blinds",
-            "stop closing the blinds",
-            "stop opening the blinds",
+            "stop closing",
+            "stop opening",
+            "quit",
             "stop"
           ]
         }

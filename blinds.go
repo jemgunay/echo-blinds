@@ -89,12 +89,15 @@ func updatePoller() {
 		switch state {
 		case Open:
 			log.Print("Opening blinds...")
-			go rotateMotor.SetDirectionWithDuration(motor.Forwards, time.Second*1)
+			go rotateMotor.SetDirectionWithDuration(motor.Forwards, time.Millisecond*500)
 			go drawMotor.SetDirectionWithDuration(motor.Forwards, time.Second*8)
 
 		case Close:
 			log.Print("Closing blinds...")
-			go rotateMotor.SetDirectionWithDuration(motor.Backwards, time.Second*1)
+			go func() {
+				time.Sleep(time.Second*7)
+				rotateMotor.SetDirectionWithDuration(motor.Backwards, time.Millisecond*500)
+			}()
 			go drawMotor.SetDirectionWithDuration(motor.Backwards, time.Second*8)
 
 		case Stop:
