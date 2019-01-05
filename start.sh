@@ -1,3 +1,9 @@
 #!/bin/bash
 
-nohup ./echo-blinds &> echo-blinds.log
+fuser 3000/tcp >/dev/null
+if [[ $? == 0 ]]; then
+    echo "> There is already an echo-blinds service running on port 3000..."
+    exit 1
+fi
+
+nohup ./echo-blinds &> echo-blinds.log &

@@ -1,4 +1,4 @@
-# IP address of target blinds raspberry pi
+# IP address of target raspberry pi for deployment
 rpi_ip_address="192.168.1.226"
 
 clean:
@@ -6,6 +6,7 @@ clean:
 
 build: clean
 	mkdir build
+	chmod +x install-blinds.sh
 
 	# build echo-blinds & manual-blinds ARM executables
 	cd ./cmd/echo-blinds && rm -f echo-blinds && env GOOS=linux GOARCH=arm GOARM=5 go build
@@ -16,8 +17,13 @@ build: clean
 	cp -f start.sh stop.sh ./build
 	chmod +x ./build/start.sh ./build/stop.sh
 
-upload:
-	# scp to raspberry pi
-	scp ./build/*-blinds start.sh pi@${rpi_ip_address}:/tmp/
+package:
+	# package into zip
+	rm -f ./build/echo-blinds.zip
+	cd ./build && zip -r ./echo-blinds.zip ./*
 
-publish: build upload
+upload:
+	# scp zip & install script to raspberry pi
+	scp ./build/echo-blinds.zip ./install-blinds.sh pi@${rpi_ip_address}:/tmp/
+
+deploy: build package upload
