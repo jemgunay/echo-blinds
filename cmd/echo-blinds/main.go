@@ -18,6 +18,7 @@ const skillID = "enter skill ID here"
 func main() {
 	// parse flags
 	port := flag.Uint64("port", 3000, "the port for the HTTP server to listen on")
+	flag.Parse()
 
 	// init blinds control
 	if err := blinds.Init(); err != nil {
