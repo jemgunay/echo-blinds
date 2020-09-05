@@ -7,8 +7,8 @@ Models for 3D printed parts can be found in the `models` directory.
 Video demo: https://youtu.be/fgj6HONCQOs
 
 <p align="center">
-  <img src="/img/image_1.jpeg" width="275"/>
   <img src="/img/image_2.jpeg" width="275"/>
+  <img src="/img/image_1.jpeg" width="275"/>
 </p>
 
 ## Usage
