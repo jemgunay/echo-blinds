@@ -1,5 +1,5 @@
 # IP address of target raspberry pi for deployment
-rpi_ip_address="192.168.1.226"
+rpi_ip_address="<host_ip_address>"
 
 clean:
 	rm -rf ./build
